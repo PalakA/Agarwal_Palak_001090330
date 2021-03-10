@@ -36,18 +36,9 @@ public class MainClass {
 
         while (!exit) {
             System.out.println("\nEnter your choice: ");
-            try {
-
-                sUserInput = scanObj.nextInt();
-
-            } catch (Exception e) {
-                System.out.println("Choice error");
-                scanObj.next();
-                System.out.println("Enter your choice here:");
-                sUserInput = scanObj.nextInt();
-            }
+            sUserInput = scanObj.nextInt();
             scanObj.nextLine();
-            
+
             switch (sUserInput) {
                 case 1:
                     addVSigns(patientDirectory);
@@ -71,89 +62,37 @@ public class MainClass {
     public static void addVSigns(PatientDirectory patientDirectory) {
         
         Scanner scanObj = new Scanner(System.in);
-        VitalSigns vitalSign = new VitalSigns();
-         
         System.out.println("Enter Patient's Full Name:");
+
         String patientName = scanObj.nextLine();
-        if (patientName.matches("[0-9]+")) {
-            System.out.println("Contains Digits. Enter the Name");
-            System.out.println("Please enter patient name");
-            patientName = scanObj.next();
-        }
+
         Patient patient = patientDirectory.getPatient(patientName);
                 
         System.out.println("\nEnter Patient's Age:");
-        try {
-
-            vitalSign.setAgeGroup(scanObj.nextDouble());
-
-        } catch (Exception e) {
-            System.out.println("Age Error");
-            scanObj.next();
-            System.out.println("Enter age here:");
-            vitalSign.setAgeGroup(scanObj.nextDouble());
-        }
+        double ageGroup = scanObj.nextDouble();
 
         System.out.println("\nEnter Patient's Respiratory rate:");
-        try {
-
-            vitalSign.setRespiratoryRate(scanObj.nextInt());
-
-        } catch (Exception e) {
-            System.out.println("Respiratory Rate Error");
-            scanObj.next();
-            System.out.println("Enter Respiratory Rate here:");
-            vitalSign.setRespiratoryRate(scanObj.nextInt());
-        }
+        int respiratoryRate = scanObj.nextInt();
 
         System.out.println("\nEnter Patient's Heart Rate: ");
-        try {
+        int heartRate = scanObj.nextInt();
 
-            vitalSign.setHeartRate(scanObj.nextInt());
-
-        } catch (Exception e) {
-            System.out.println("Heart Rate Error");
-            scanObj.next();
-            System.out.println("Enter Heart Rate here:");
-            vitalSign.setHeartRate(scanObj.nextInt());
-        }
-        
         System.out.println("\nEnter Patient's Blood Pressure: ");
-        try {
-
-            vitalSign.setBloodPressure(scanObj.nextInt());
-
-        } catch (Exception e) {
-            System.out.println("Blood Pressure Error");
-            scanObj.next();
-            System.out.println("Enter Blood Pressure here:");
-            vitalSign.setBloodPressure(scanObj.nextInt());
-        }
+        int sysBloodPressure = scanObj.nextInt();
 
         System.out.println("\nEnter Patient's Weight (in Kilos):");
-        try {
-
-            vitalSign.setWeightInKilos(scanObj.nextDouble());
-
-        } catch (Exception e) {
-            System.out.println("Weight (in Kilos) Error");
-            scanObj.next();
-            System.out.println("Enter Weight (in Kilos)  here:");
-            vitalSign.setWeightInKilos(scanObj.nextDouble());
-        }
+        double weightInKgs = scanObj.nextDouble();
         
-        System.out.println("\nEnter Patient's Weight (in Pounds):");;
-        try {
-
-            vitalSign.setWeightinPounds(scanObj.nextDouble());
-
-        } catch (Exception e) {
-            System.out.println("Weight (in Pounds) Error");
-            scanObj.next();
-            System.out.println("Enter Weight (in Pounds) here:");
-            vitalSign.setWeightinPounds(scanObj.nextDouble());
-        }
+        System.out.println("\nEnter Patient's Weight (in Pounds):");
+        double weightinPounds = scanObj.nextDouble();
         
+        VitalSigns vitalSign = new VitalSigns();
+        vitalSign.setAgeGroup(ageGroup);
+        vitalSign.setRespiratoryRate(respiratoryRate);
+        vitalSign.setHeartRate(heartRate);
+        vitalSign.setBloodPressure(sysBloodPressure);
+        vitalSign.setWeightInKilos(weightInKgs);
+        vitalSign.setWeightinPounds(weightinPounds);
         vitalSign.setIsRecent(true);
         
         //Creating encounter object
@@ -183,12 +122,6 @@ public class MainClass {
         System.out.println("\nEnter Patient's Full Name: ");
 
         String name = scanObj.nextLine();
-        
-        do{
-            System.out.println("\nPatient not in Directory,\n Please Enter correct Patient Name:");
-            name = scanObj.nextLine();
-        }
-        while(!(patientDirectory.checkPatient(name)));
 
         System.out.println("\nEnter Vital sign attribute: ");
         System.out.println("\n\"RespiratoryRate\"");

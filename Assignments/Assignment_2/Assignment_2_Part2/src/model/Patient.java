@@ -69,26 +69,85 @@ public class Patient {
 
         System.out.println("Enter Patient's Full Name:");
         patientName = inputObj.nextLine();
-
+        if (patientName.matches("[0-9]+")) {
+            System.out.println("Contains Digits. Enter the Name");
+            System.out.println("Please enter patient name");
+            patientName = inputObj.next();
+        }
+        
         Patient patient = this.patientHistory.getPatient(patientName);
         
         System.out.println("Enter Patient's Age:");
-        ageGroup = inputObj.nextDouble();
+        try {
+
+            ageGroup = inputObj.nextDouble();
+
+        } catch (Exception e) {
+            System.out.println("Age Error");
+            inputObj.next();
+            System.out.println("Enter age here:");
+            ageGroup = inputObj.nextDouble();
+        }
 
         System.out.println("Enter Patient's Respiratory rate:");
-        respiratoryRate = inputObj.nextInt();
+        try {
+
+            respiratoryRate = inputObj.nextInt();
+
+        } catch (Exception e) {
+            System.out.println("Respiratory Rate Error");
+            inputObj.next();
+            System.out.println("Enter Respiratory Rate here:");
+            respiratoryRate = inputObj.nextInt();
+        }
 
         System.out.println("Enter Patient's Heart rate:");
-        heartRate = inputObj.nextInt();
+        try {
+
+            heartRate = inputObj.nextInt();
+
+        } catch (Exception e) {
+            System.out.println("Heart Rate Error");
+            inputObj.next();
+            System.out.println("Enter Heart Rate here:");
+            heartRate = inputObj.nextInt();
+        }
 
         System.out.println("Enter Patient's Blood Pressure:");
-        bloodPressure = inputObj.nextInt();
+        try {
+
+            bloodPressure = inputObj.nextInt();
+
+        } catch (Exception e) {
+            System.out.println("Blood Pressure Error");
+            inputObj.next();
+            System.out.println("Enter Blood Pressure here:");
+            bloodPressure = inputObj.nextInt();
+        }
 
         System.out.println("Enter Patient's Weight (in Kilos):");
-        weightInKilos = inputObj.nextDouble();
+        try {
+
+            weightInKilos = inputObj.nextDouble();
+
+        } catch (Exception e) {
+            System.out.println("Weight (in Kilos) Error");
+            inputObj.next();
+            System.out.println("Enter Weight (in Kilos)  here:");
+            weightInKilos = inputObj.nextDouble();
+        }
 
         System.out.println("Enter Patient's Weight (in Pounds):");
-        weightinPounds = inputObj.nextDouble();
+        try {
+
+            weightinPounds = inputObj.nextDouble();
+
+        } catch (Exception e) {
+            System.out.println("Weight (in Pounds) Error");
+            inputObj.next();
+            System.out.println("Enter Weight (in Pounds) here:");
+            weightinPounds = inputObj.nextDouble();
+        }
 
         patient.addNewVitalSign(ageGroup, respiratoryRate, heartRate, bloodPressure, weightInKilos, weightinPounds, date);
         
@@ -110,6 +169,12 @@ public class Patient {
 
         String name = scanner.nextLine();
 
+        do{
+            System.out.println("\nPatient not in Directory,\n Please Enter correct Patient Name:");
+            name = scanner.nextLine();
+        }
+        while(!(this.patientHistory.checkPatient(name)));
+                
         System.out.println("\nEnter Vital sign attribute: ");
         System.out.println("\n\"RespiratoryRate\"");
         System.out.println("\"HeartRate\"");
@@ -162,7 +227,16 @@ public class Patient {
        
         while (!quit) {
             System.out.println("\nEnter your choice: ");
-            sUserInput = scanner.nextInt();
+            try {
+
+                sUserInput = scanner.nextInt();
+
+            } catch (Exception e) {
+                System.out.println("Choice error");
+                scanner.next();
+                System.out.println("Enter your choice here:");
+                sUserInput = scanner.nextInt();
+            }
             scanner.nextLine();
 
             switch (sUserInput) {

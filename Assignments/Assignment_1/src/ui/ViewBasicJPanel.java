@@ -94,7 +94,6 @@ public class ViewBasicJPanel extends javax.swing.JPanel {
         txtLastName.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         txtWeight.setEditable(false);
-        txtWeight.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtWeight.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         lblLastName.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N

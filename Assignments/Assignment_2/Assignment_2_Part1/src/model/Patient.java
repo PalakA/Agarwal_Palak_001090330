@@ -93,25 +93,84 @@ public class Patient {
 
         System.out.println("Enter Patient's Name:");
         patientName = inputObj.nextLine();
+        if (patientName.matches("[0-9]+")) {
+            System.out.println("Contains Digits. Enter the Name");
+            System.out.println("Please enter patient name");
+            patientName = inputObj.next();
+        }
+        
+        System.out.println("Enter Patient's Age:");
+        try {
 
-        System.out.println("Enter Patient's Age Group:");
-        patientAge = inputObj.nextDouble();
+            patientAge = inputObj.nextDouble();
+
+        } catch (Exception e) {
+            System.out.println("Age Error");
+            inputObj.next();
+            System.out.println("Enter age here:");
+            patientAge = inputObj.nextDouble();
+        }
 
         System.out.println("Enter Patient's Respiratory rate:");
-        respiratoryRate = inputObj.nextInt();
+        try {
+
+            respiratoryRate = inputObj.nextInt();
+
+        } catch (Exception e) {
+            System.out.println("Respiratory Rate Error");
+            inputObj.next();
+            System.out.println("Enter Respiratory Rate here:");
+            respiratoryRate = inputObj.nextInt();
+        }
 
         System.out.println("Enter Patient's Heart rate:");
-        heartRate = inputObj.nextInt();
+        try {
+
+            heartRate = inputObj.nextInt();
+
+        } catch (Exception e) {
+            System.out.println("Heart Rate Error");
+            inputObj.next();
+            System.out.println("Enter Heart Rate here:");
+            heartRate = inputObj.nextInt();
+        }
 
         System.out.println("Enter Patient's Blood Pressure:");
-        bloodPressure = inputObj.nextInt();
+        try {
+
+            bloodPressure = inputObj.nextInt();
+
+        } catch (Exception e) {
+            System.out.println("Blood Pressure Error");
+            inputObj.next();
+            System.out.println("Enter Blood Pressure here:");
+            bloodPressure = inputObj.nextInt();
+        }
 
         System.out.println("Enter Patient's Weight (in Kilos):");
-        weightInKilos = inputObj.nextDouble();
+        try {
+
+            weightInKilos = inputObj.nextDouble();
+
+        } catch (Exception e) {
+            System.out.println("Weight (in Kilos) Error");
+            inputObj.next();
+            System.out.println("Enter Weight (in Kilos)  here:");
+            weightInKilos = inputObj.nextDouble();
+        }
 
         System.out.println("Enter Patient's Weight (in Pounds):");
-        weightinPounds = inputObj.nextDouble();
+        try {
 
+            weightinPounds = inputObj.nextDouble();
+
+        } catch (Exception e) {
+            System.out.println("Weight (in Pounds) Error");
+            inputObj.next();
+            System.out.println("Enter Weight (in Pounds) here:");
+            weightinPounds = inputObj.nextDouble();
+        }
+        
         patientVitals.setPatientAge(patientAge);
         patientVitals.setRespiratoryRate(respiratoryRate);
         patientVitals.setHeartRate(heartRate);

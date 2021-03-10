@@ -36,20 +36,5 @@ public class PatientDirectory {
         Patient p = new Patient(name);
         this.patientDirectory.add(p);
         return p;
-    } 
-    
-    public boolean checkPatient(String name){
-        
-        boolean isPatientinDirectory = false;
-         for (Patient p : this.patientDirectory) {
-            if (p.getName().toLowerCase().equals(name.toLowerCase())) {
-                isPatientinDirectory = true;
-            }
-            else
-            {
-                isPatientinDirectory = false;
-            }
-        }
-         return isPatientinDirectory;
-    }
+    }   
 }

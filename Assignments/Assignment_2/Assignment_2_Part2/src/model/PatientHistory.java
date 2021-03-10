@@ -37,4 +37,19 @@ public class PatientHistory {
         this.patientHistory.add(p);
         return p;
     }
+    
+    public boolean checkPatient(String name){
+        
+        boolean isPatientinDirectory = false;
+         for (Patient p : this.patientHistory) {
+            if (p.getFullName().toLowerCase().equals(name.toLowerCase())) {
+                isPatientinDirectory = true;
+            }
+            else
+            {
+                isPatientinDirectory = false;
+            }
+        }
+         return isPatientinDirectory;
+    }
 }
